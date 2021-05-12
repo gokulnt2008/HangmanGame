@@ -1,0 +1,29 @@
+function checkWhetherElementExists(ClickedElementId) {
+    console.log(ClickedElementId)
+    selectedLetter = ClickedElementId
+
+    var letterStatus = choosenWordsArr.indexOf(ClickedElementId)
+    if (letterStatus >= 0) {
+        console.log("word Exists!")
+        String.prototype.replaceAt = function(index, replacement) {
+            if (index >= this.length) {
+                return this.valueOf();
+            }
+         
+            return this.substring(0, index) + replacement + this.substring(index + 1);
+        }
+         
+        
+        
+        var str = globalStoredStr;
+        str = globalStoredStr.replaceAt(letterStatus, ClickedElementId);
+        var storedStr = str
+        globalStoredStr = storedStr
+
+        console.log(globalStoredStr);
+        appendWordToContainer()
+
+    } else {
+        console.log("Word Doesn't Exist! You lose A point")
+    }
+}
